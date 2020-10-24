@@ -1,40 +1,24 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:lgbt_viet_nam/Screens/Login/login_screen.dart';
+import 'package:lgbt_viet_nam/Screens/Welcome/welcome_screen.dart';
+import 'constants.dart';
 
-void main() {
-  runApp(MaterialApp(
-    title: "fasd",
-    home: MyApp(),
-  ));
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          tooltip: "xin chao",
-          onPressed: null,
-        ),
-        title: Center(
-          child: Text ('Heello 2'),
-        ),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: app_name,
 
-      body: Center(
-        child:
+      theme: ThemeData(
+        primaryColor: primary_color,
+        scaffoldBackgroundColor: primary_color,
+        appBarTheme: AppBarTheme(color: primary_color),
       ),
+      home: WelcomeScreen()
     );
   }
 }
-
-class test extends StatefulWidget{
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
-  }
-}
-

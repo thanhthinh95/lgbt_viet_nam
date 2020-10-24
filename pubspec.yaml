@@ -33,6 +33,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.8.1
+
+flutter_icons:
+  ios: true
+  android: 'launcher_icon'
+  image_path: 'assets/images/logo_lgbt_vietnam.png'
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -49,6 +55,31 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+
+  assets:
+    - assets/images/
+    - assets/icons/
+#    - assets/fonts/
+
+  fonts:
+    - family: UTMGradoo
+      fonts:
+        - asset: assets/fonts/UTM_Gradoo.ttf
+
+    - family: UTMCaviar
+      fonts:
+        - asset: assets/fonts/UTM_Caviar.ttf
+
+    - family: UTMDuepuntozero
+      fonts:
+        - asset: assets/fonts/UTM_Duepuntozero.ttf
+        - asset: assets/fonts/UTM_DuepuntozeroBold.ttf
+#          style: "bold"
+
+    - family: Tahoma
+      fonts:
+        - asset: assets/fonts/tahoma.ttf
+        - asset: assets/fonts/tahomabd.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

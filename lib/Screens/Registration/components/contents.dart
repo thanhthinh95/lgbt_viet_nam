@@ -3,6 +3,8 @@ import 'package:lgbt_viet_nam/Screens/Login/components/form_login.dart';
 import 'package:lgbt_viet_nam/Screens/Welcome/welcome_screen.dart';
 import 'package:lgbt_viet_nam/constants.dart';
 
+import 'form_registration.dart';
+
 class Contents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,10 +20,10 @@ class Contents extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    sc_login_name,
+                    sc_registration_name,
                     style: screen_name_style,
                   ),
-                  Text(sc_login_detail, style: detail_style),
+                  Text(sc_registration_detail, style: detail_style),
                   Container(
                     alignment: Alignment.center,
                     margin: EdgeInsets.only(top: size.height * 0.15),
@@ -36,7 +38,7 @@ class Contents extends StatelessWidget {
                       ],
                     ),
                   ),
-                  FormLogin(),
+                  FormRegistration(),
                 ]),
           )),
     );

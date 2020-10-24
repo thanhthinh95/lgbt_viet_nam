@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:lgbt_viet_nam/Widgets/TextFormField.dart';
 import 'package:lgbt_viet_nam/constants.dart';
 
-class FormLogin extends StatefulWidget {
+class FormRegistration extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _FormLoginState();
+    return _FormRegistrationState();
   }
 }
 
-class _FormLoginState extends State<FormLogin> {
+class _FormRegistrationState extends State<FormRegistration> {
+  BuildContext _context;
   final _formKey = GlobalKey<FormState>();
   final _emailRegExp = RegExp(
       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 
   @override
   Widget build(BuildContext context) {
+    this._context = context;
     final Size size = MediaQuery.of(context).size;
     return Form(
       key: _formKey,
@@ -47,7 +49,7 @@ class _FormLoginState extends State<FormLogin> {
                 side: BorderSide(color: border_button_color),
               ),
               child: Text(
-                sc_login_button_login,
+                sc_registration_button_registration,
                 style: text_normal_style,
               ),
               onPressed: () {
@@ -61,7 +63,7 @@ class _FormLoginState extends State<FormLogin> {
                     this._forgotPassword();
                   },
                   child: Text(
-                    sc_login_text_forgot_password,
+                    sc_registration_text_login,
                     style: text_normal_style,
                   ),
                 ))
@@ -76,6 +78,11 @@ class _FormLoginState extends State<FormLogin> {
   }
 
   void _forgotPassword() {
-    print('begin forgot Password');
+    try {
+      print('back screen login');
+      Navigator.pop(_context);
+    } catch (ex) {
+      print('ex:' + ex);
+    }
   }
 }
