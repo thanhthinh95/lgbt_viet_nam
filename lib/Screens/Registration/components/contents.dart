@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lgbt_viet_nam/Screens/Login/components/form_login.dart';
-import 'package:lgbt_viet_nam/Screens/Welcome/welcome_screen.dart';
 import 'package:lgbt_viet_nam/constants.dart';
 
 import 'form_registration.dart';
@@ -26,7 +24,7 @@ class Contents extends StatelessWidget {
                   Text(sc_registration_detail, style: detail_style),
                   Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(top: size.height * 0.15),
+                    margin: EdgeInsets.only(top: size.height * 0.08),
                     child: Column(
                       children: [
                         SizedBox(

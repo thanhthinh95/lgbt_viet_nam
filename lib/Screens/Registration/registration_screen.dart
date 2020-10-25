@@ -15,7 +15,6 @@ class Registration extends StatelessWidget{
         children: [
           Background('assets/images/bg_registration.png'),
           Contents(),
-          // LayoutRegistration(),
         ],
       ),
     );

@@ -1,6 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lgbt_viet_nam/Screens/Registration/registration_screen.dart';
+import 'package:lgbt_viet_nam/Widgets/Animations/SlideBottomLeftRoute.dart';
+import 'package:lgbt_viet_nam/Widgets/Animations/SlideRightRoute.dart';
+import 'package:lgbt_viet_nam/Widgets/Animations/SlideTopLeftRoute.dart';
+import 'package:lgbt_viet_nam/Widgets/Animations/SlideTopRightRoute.dart';
 
 import '../../../constants.dart';
 
@@ -45,7 +49,7 @@ class LayoutRegistration extends StatelessWidget { // ignore: must_be_immutable
       print('doing click button registration');
       Navigator.push(
         _context,
-        MaterialPageRoute(builder: (context) => Registration()),
+        SlideRightRoute(page : Registration()),
       );
     } catch (ex) {
       print('ex:' + ex);

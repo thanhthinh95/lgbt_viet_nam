@@ -36,14 +36,16 @@ class WelcomeState extends State<WelcomeScreen> {
     );
   }
 
-  // Chờ 3s rồi điều hướng sang màn hình login
+  // Chờ 2s rồi điều hướng sang màn hình login
   startTime() async {
-    Duration duration = new Duration(seconds: 3);
+    Duration duration = new Duration(seconds: 2);
     return new Timer(duration, route);
   }
 
   route() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => LoginScreen()));
+      context,
+      MaterialPageRoute(builder: (context) => LoginScreen()),
+    );
   }
 }
