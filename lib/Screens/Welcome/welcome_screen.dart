@@ -31,7 +31,7 @@ class WelcomeState extends State<WelcomeScreen> {
         children: [
           Background('assets/images/bg_welcome.png'),
           Contents(),
-        ],
+      ],
       ),
     );
   }

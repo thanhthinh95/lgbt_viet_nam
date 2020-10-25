@@ -28,16 +28,16 @@ class _FormRegistrationState extends State<FormRegistration> {
           children: [
             TextForm(
               name: sc_login_text_form_username,
-              max_length: 40,
-              value_default: null,
-              prefix_icon: Icons.email,
+              maxLength: 40,
+              valueDefault: null,
+              prefixIcon: Icons.email,
               obscureText: false,
             ),
             TextForm(
               name: sc_login_text_form_password,
-              max_length: 20,
-              value_default: null,
-              prefix_icon: Icons.security,
+              maxLength: 20,
+              valueDefault: null,
+              prefixIcon: Icons.security,
               obscureText: true,
             ),
             MaterialButton(
@@ -53,14 +53,14 @@ class _FormRegistrationState extends State<FormRegistration> {
                 style: text_normal_style,
               ),
               onPressed: () {
-                this._login();
+                this._registration();
               },
             ),
             Container(
                 margin: EdgeInsets.only(top: 10.0),
                 child: GestureDetector(
                   onTap: () {
-                    this._forgotPassword();
+                    this._backToLogin();
                   },
                   child: Text(
                     sc_registration_text_login,
@@ -73,11 +73,11 @@ class _FormRegistrationState extends State<FormRegistration> {
     );
   }
 
-  void _login() {
+  void _registration() {
     print('begin login');
   }
 
-  void _forgotPassword() {
+  void _backToLogin() {
     try {
       print('back screen login');
       Navigator.pop(_context);

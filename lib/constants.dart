@@ -6,6 +6,9 @@ const slogan = 'Hãy là chính bản thân mình';
 
 const padding_value = EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0);
 
+//regex_value
+const reg_email = r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
+
 //color
 const primary_color = Color(0xFF6A5C5B);
 const background_color = Color(0xFF000000);
@@ -13,7 +16,8 @@ const icon_color = Color(0xFFFFFFFF);
 const text_color = Color(0xFFFFFFFF);
 const border_color = Color(0xFFFFFFFF);
 const border_button_color = Color(0xFFA1A1A1);
-const text_hind_color = Color(0xFFBDBDBD);
+const text_hind_color = Color(0xFFB0B3B8);
+const text_detail_color = Color(0xFFB0B3A9);
 const button_color = Color(0xFF707070);
 const background_filter_color = Color(0xFF282C30);
 
@@ -43,7 +47,7 @@ const detail_style = TextStyle(
   fontWeight: FontWeight.normal,
   fontSize: detail_font_size,
   fontFamily: 'UTMCaviar',
-  color: text_color,
+  color: text_detail_color,
   decoration: TextDecoration.none,
 );
 
@@ -55,6 +59,9 @@ const text_normal_style = TextStyle(
   decoration: TextDecoration.none,
 );
 
+//validate_warning
+const validate_warning_email = 'Thư điện thử không hợp lệ';
+const validate_warning_pass = 'Độ dài mật khẩu 6 - 20 ký tự';
 
 //Screen_Welcome
 //Screen_login
@@ -65,6 +72,7 @@ const sc_login_text_form_password = 'Mật khẩu';
 const sc_login_text_forgot_password = 'Quên mật khẩu';
 const sc_login_button_login = 'Đăng Nhập';
 const sc_login_button_registration = 'Đăng Ký';
+const sc_login_helper_email = 'dinhvana@gmail.com';
 
 //Screen_registration
 const sc_registration_name = 'Đăng Ký';

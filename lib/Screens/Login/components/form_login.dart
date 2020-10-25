@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lgbt_viet_nam/Widgets/TextFormField.dart';
 import 'package:lgbt_viet_nam/constants.dart';
+import 'package:lgbt_viet_nam/helper.dart';
 
 class FormLogin extends StatefulWidget {
   @override
@@ -11,8 +12,6 @@ class FormLogin extends StatefulWidget {
 
 class _FormLoginState extends State<FormLogin> {
   final _formKey = GlobalKey<FormState>();
-  final _emailRegExp = RegExp(
-      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +25,28 @@ class _FormLoginState extends State<FormLogin> {
           children: [
             TextForm(
               name: sc_login_text_form_username,
-              max_length: 40,
-              value_default: null,
-              prefix_icon: Icons.email,
+              validate: Helper().validateEmail,
+              textInputType: TextInputType.emailAddress,
+              maxLength: 40,
+              // valueDefault: 'null',
+              prefixIcon: Icons.email,
+              suffixIcon: null,
+              suffixIconReplace: null,
               obscureText: false,
+              showCounterText: false,
+              textInputAction: TextInputAction.next,
+              helperText: sc_login_helper_email,
             ),
             TextForm(
               name: sc_login_text_form_password,
-              max_length: 20,
-              value_default: null,
-              prefix_icon: Icons.security,
+              validate: Helper().validatePassWord,
+              textInputType: TextInputType.visiblePassword,
+              maxLength: 20,
+              // valueDefault: null,
+              showCounterText: true,
+              suffixIcon: Icons.visibility,
+              suffixIconReplace: Icons.visibility,
+              prefixIcon: Icons.security,
               obscureText: true,
             ),
             MaterialButton(
@@ -72,7 +83,14 @@ class _FormLoginState extends State<FormLogin> {
   }
 
   void _login() {
-    print('begin login');
+    try {
+      print('begin login');
+      if (_formKey.currentState.validate()) {
+        Scaffold.of(context).showSnackBar(SnackBar(content: Text('ok')));
+      }
+    } catch (ex) {
+      print('ex: ' + ex.toString());
+    }
   }
 
   void _forgotPassword() {
