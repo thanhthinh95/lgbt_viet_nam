@@ -4,10 +4,16 @@ import 'package:flutter/material.dart';
 const app_name = 'LGBT Việt Nam';
 const slogan = 'Hãy là chính bản thân mình';
 
-const padding_value = EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0);
+//server
+const host = '192.168.10.208';
+const port = '6630';
+
+//notify
+const no_internet = 'Hãy kiểm tra lại kết nối mạng!';
 
 //regex_value
-const reg_email = r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
+const reg_email =
+    r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
 
 //color
 const primary_color = Color(0xFF6A5C5B);
@@ -20,11 +26,16 @@ const text_hind_color = Color(0xFFB0B3B8);
 const text_detail_color = Color(0xFFB0B3A9);
 const button_color = Color(0xFF707070);
 const background_filter_color = Color(0xFF282C30);
+const background_notify = Color(0xFF282C30);
+
+//padding
+const padding_value = EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0);
 
 //size
 const app_name_font_size = 28.0;
 const detail_font_size = 18.0;
 const normal_font_size = 15.0;
+const small_font_size = 13.0;
 
 //style
 const app_name_style = TextStyle(
@@ -51,6 +62,14 @@ const detail_style = TextStyle(
   decoration: TextDecoration.none,
 );
 
+const text_notify_style = TextStyle(
+  fontWeight: FontWeight.normal,
+  fontSize: small_font_size,
+  fontFamily: 'Tahoma',
+  color: text_color,
+  decoration: TextDecoration.none,
+);
+
 const text_normal_style = TextStyle(
   fontWeight: FontWeight.normal,
   fontSize: normal_font_size,
@@ -72,7 +91,7 @@ const sc_login_text_form_password = 'Mật khẩu';
 const sc_login_text_forgot_password = 'Quên mật khẩu';
 const sc_login_button_login = 'Đăng Nhập';
 const sc_login_button_registration = 'Đăng Ký';
-const sc_login_helper_email = 'dinhvana@gmail.com';
+const sc_login_helper_email = 'VD: dinhvana@gmail.com';
 
 //Screen_registration
 const sc_registration_name = 'Đăng Ký';

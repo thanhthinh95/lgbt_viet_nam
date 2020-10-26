@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lgbt_viet_nam/constants.dart';
 
 class TextForm extends StatefulWidget {
+  final TextEditingController controller;
   final String name; //Thư điện tử
   final FormFieldValidator<String> validate; //Thư điện tử
   final TextInputType textInputType; //Loại
@@ -12,10 +13,12 @@ class TextForm extends StatefulWidget {
   final IconData suffixIcon; //Icon ở cuối
   final IconData suffixIconReplace; //Icon sẽ được thay thế khi click vào
   final bool showCounterText; //Cho phép hiện thị số lượng kỹ tự còn lại
-  final TextInputAction textInputAction; //Cho phép hiện thị số lượng kỹ tự còn lại
+  final TextInputAction
+      textInputAction; //Cho phép hiện thị số lượng kỹ tự còn lại
   bool obscureText; //Ẩn text (password)
 
   TextForm({
+    this.controller,
     this.name,
     this.validate,
     this.textInputType,
@@ -48,8 +51,10 @@ class _TextFormState extends State<TextForm> {
     return SizedBox(
       height: 78.0,
       child: TextFormField(
-        textInputAction: textForm.textInputAction != null ? textForm.textInputAction : null,
+        controller: textForm.controller,
         initialValue: textForm.valueDefault,
+        textInputAction:
+            textForm.textInputAction != null ? textForm.textInputAction : null,
         // cursorColor: text_color,
         validator: textForm.validate,
         autovalidateMode: AutovalidateMode.onUserInteraction,

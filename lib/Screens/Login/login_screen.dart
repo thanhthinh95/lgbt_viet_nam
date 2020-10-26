@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lgbt_viet_nam/Screens/CheckInternet/CheckInternet.dart';
 import 'package:lgbt_viet_nam/Screens/Login/components/contents.dart';
 import 'package:lgbt_viet_nam/Screens/Login/components/layout_registration.dart';
 import 'package:lgbt_viet_nam/Widgets/background.dart';
@@ -23,9 +24,9 @@ class LoginState extends State<LoginScreen> {
           Background('assets/images/bg_login.png'),
           Contents(),
           LayoutRegistration(),
+          CheckInternet(),
         ],
       ),
     );
   }
 }
-

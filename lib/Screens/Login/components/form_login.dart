@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:lgbt_viet_nam/Widgets/TextFormField.dart';
 import 'package:lgbt_viet_nam/constants.dart';
@@ -12,6 +14,8 @@ class FormLogin extends StatefulWidget {
 
 class _FormLoginState extends State<FormLogin> {
   final _formKey = GlobalKey<FormState>();
+  TextEditingController _emailController = new TextEditingController();
+  TextEditingController _passwordController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +28,9 @@ class _FormLoginState extends State<FormLogin> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             TextForm(
+              controller: _emailController,
               name: sc_login_text_form_username,
-              validate: Helper().validateEmail,
+              validate: Helper.validateEmail,
               textInputType: TextInputType.emailAddress,
               maxLength: 40,
               // valueDefault: 'null',
@@ -38,14 +43,15 @@ class _FormLoginState extends State<FormLogin> {
               helperText: sc_login_helper_email,
             ),
             TextForm(
+              controller: _passwordController,
               name: sc_login_text_form_password,
-              validate: Helper().validatePassWord,
+              validate: Helper.validatePassWord,
               textInputType: TextInputType.visiblePassword,
               maxLength: 20,
               // valueDefault: null,
               showCounterText: true,
               suffixIcon: Icons.visibility,
-              suffixIconReplace: Icons.visibility,
+              suffixIconReplace: Icons.visibility_off,
               prefixIcon: Icons.security,
               obscureText: true,
             ),
@@ -82,11 +88,18 @@ class _FormLoginState extends State<FormLogin> {
     );
   }
 
-  void _login() {
+  Future<void> _login() async {
     try {
       print('begin login');
       if (_formKey.currentState.validate()) {
-        Scaffold.of(context).showSnackBar(SnackBar(content: Text('ok')));
+        // Scaffold.of(context).showSnackBar(SnackBar(content: Text(_emailController.text + _passwordController.text)));
+
+        var response = await Helper.postData('/user/login', {
+          'user_name': _emailController.text,
+          'password': _passwordController.text,
+        });
+
+        print('abc: ' + response);
       }
     } catch (ex) {
       print('ex: ' + ex.toString());
