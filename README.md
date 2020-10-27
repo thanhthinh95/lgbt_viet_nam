@@ -1,17 +1,19 @@
-# lgbt_viet_nam
+# APP LGBT Việt Nam
 
-A new Flutter application.
+### Làm thế nào để chạy
+    - Dùng AVD Manage để tạo máy ảo, hoặc dùng máy thật để run.
 
-## Getting Started
+### Cấu trúc thư mục
+    - assets: Chứa tài nguyên dùng chung của hệ thống images, fonts...
+    - pubspec.yaml: Chứa các package cần intall dark
+    - lib/Screens: Chứa danh sách các màn hình
+        + components: Thành phần con của 1 màn hình
+        + tenmanhinh_screen: Bao bọc 1 màn hình
+    - lib/Widgets: Chứa các Widgets dùng chung có thể tái sử dụng lại của hệ thống
+    - lib/constants.dark: Chứa tất cả các hằng số dùng chung của toàn hệ thống
+    - lib/helper.dark: Chứa các hàm dùng chung của toàn hệ thống
+    - lib/main.dark: main của chương trình
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# lgbt_viet_nam" 
+created_at: 27/10/20 thinhdev
+update_at:

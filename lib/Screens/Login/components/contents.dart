@@ -30,7 +30,7 @@ class Contents extends StatelessWidget {
                     child: Container(
                       alignment: Alignment.bottomRight,
                       margin: EdgeInsets.only(
-                        bottom: size.height * 0.14,
+                        bottom: size.height * 0.04,
                         top: size.height * 0.02,
                       ),
                       child: Column(
