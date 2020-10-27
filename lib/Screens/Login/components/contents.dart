@@ -8,37 +8,47 @@ class Contents extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Container(
-      padding: padding_value,
-      margin: EdgeInsets.only(top: 20.0, left: 15.0,),
-      child: Scaffold(
+        padding: padding_value,
+        margin: EdgeInsets.only(
+          top: 20.0,
+          left: 15.0,
+        ),
+        child: Scaffold(
           backgroundColor: Colors.transparent,
-          body: SingleChildScrollView(
-            child: Column(
-                textBaseline: TextBaseline.alphabetic,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    sc_login_name,
-                    style: screen_name_style,
-                  ),
-                  Text(sc_login_detail, style: detail_style),
-                  Container(
-                    alignment: Alignment.center,
-                    margin: EdgeInsets.only(top: size.height * 0.15),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 155.0,
-                          child: Image.asset(
-                              'assets/images/logo_lgbt_vietnam.png'),
-                        ),
-                        Text(app_name, style: app_name_style),
-                      ],
+          body: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  sc_login_name,
+                  style: screen_name_style,
+                ),
+                Text(sc_login_detail, style: detail_style),
+                Expanded(
+                  child: Align(
+                    alignment: FractionalOffset.bottomCenter,
+                    child: Container(
+                      alignment: Alignment.bottomRight,
+                      margin: EdgeInsets.only(
+                        bottom: size.height * 0.14,
+                        top: size.height * 0.02,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SizedBox(
+                            height: 155.0,
+                            child: Image.asset(
+                                'assets/images/logo_lgbt_vietnam.png'),
+                          ),
+                          Text(app_name, style: app_name_style),
+                          FormLogin()
+                        ],
+                      ),
                     ),
                   ),
-                  FormLogin(),
-                ]),
-          )),
-    );
+                ),
+              ]),
+        ));
   }
 }

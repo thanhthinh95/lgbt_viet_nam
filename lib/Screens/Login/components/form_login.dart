@@ -23,9 +23,8 @@ class _FormLoginState extends State<FormLogin> {
     return Form(
       key: _formKey,
       child: Container(
-        margin: EdgeInsets.only(top: 40.0, left: 15.0, right: 20.0),
+        margin: EdgeInsets.only(top: size.height * 0.05, left: 15.0, right: 20.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             TextForm(
               controller: _emailController,

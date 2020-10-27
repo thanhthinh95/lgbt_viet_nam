@@ -21,28 +21,37 @@ class _CheckInternetState extends State<CheckInternet> {
     super.initState();
     _connectivity = Connectivity();
 
-    _streamSubscription = _connectivity.onConnectivityChanged.listen((event) {
-      switch (event) {
-        case ConnectivityResult.none:
-          _isVisible = true;
-          break;
-        case ConnectivityResult.mobile:
-          _isVisible = false;
-          break;
-        case ConnectivityResult.wifi:
-          _isVisible = false;
-          break;
-        default:
-          _isVisible = false;
-          break;
-      }
+    check().then((event) => checkStatusConnectivity(event));
+    _streamSubscription = _connectivity.onConnectivityChanged
+        .listen((event) => checkStatusConnectivity(event));
+  }
 
-      setState(() {
-        _isVisible = _isVisible;
-      });
+  Future<ConnectivityResult> check() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    return connectivityResult;
+  }
 
-      print('_isVisible: ' + _isVisible.toString());
+  void checkStatusConnectivity(event) {
+    switch (event) {
+      case ConnectivityResult.none:
+        _isVisible = true;
+        break;
+      case ConnectivityResult.mobile:
+        _isVisible = false;
+        break;
+      case ConnectivityResult.wifi:
+        _isVisible = false;
+        break;
+      default:
+        _isVisible = false;
+        break;
+    }
+
+    setState(() {
+      _isVisible = _isVisible;
     });
+
+    print('_isVisible: ' + _isVisible.toString());
   }
 
   @override
