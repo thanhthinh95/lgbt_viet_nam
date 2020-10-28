@@ -17,11 +17,16 @@ class MyApp extends StatelessWidget {
       title: app_name,
       color: primary_color,
       theme: ThemeData(
+        // backgroundColor: primary_color,
         primaryColor: primary_color,
-        scaffoldBackgroundColor: primary_color,
-        appBarTheme: AppBarTheme(color: primary_color),
+        // scaffoldBackgroundColor: primary_color,
+        // appBarTheme: AppBarTheme(color: primary_color),
+        brightness: Brightness.dark,
+        // cursorColor: primary_color,
+        // primaryContrastingColor: primary_color,
       ),
-      home: Stack(
+
+      home:  Stack(
         children: [
           WelcomeScreen(),
         ],

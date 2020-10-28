@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:lgbt_viet_nam/Screens/Login/login_screen.dart';
-import 'package:lgbt_viet_nam/Screens/Welcome/compoments/contents.dart';
+import 'package:lgbt_viet_nam/Screens/Welcome/compoments/layout_contents.dart';
 import 'package:lgbt_viet_nam/Widgets/background.dart';
 import 'package:lgbt_viet_nam/constants.dart';
 

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lgbt_viet_nam/Widgets/TextFormField.dart';
+import 'package:lgbt_viet_nam/Screens/Login/components/layout_contents.dart';
+import 'package:lgbt_viet_nam/Widgets/Dropdown.dart';
+import 'package:lgbt_viet_nam/Widgets/TextForm.dart';
 import 'package:lgbt_viet_nam/constants.dart';
+
+import '../../../helper.dart';
 
 class FormRegistration extends StatefulWidget {
   @override
@@ -22,24 +26,75 @@ class _FormRegistrationState extends State<FormRegistration> {
     return Form(
       key: _formKey,
       child: Container(
-        margin: EdgeInsets.only(top: 40.0, left: 15.0, right: 20.0),
+        margin: EdgeInsets.only(
+            top: distance_value * 10,
+            right: distance_value * 4,
+            left: distance_value),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            TextForm(
-              name: sc_login_text_form_username,
-              maxLength: 40,
-              valueDefault: null,
-              prefixIcon: Icons.email,
-              obscureText: false,
+            Row(
+              children: [
+                Container(
+                  width: size.width * 0.53,
+                  child: TextForm(
+                    name: ac_text_first_name,
+                    helperText: ac_helper_first_name,
+                    maxLength: 20,
+                    valueDefault: null,
+                    prefixIcon: Icons.contact_page,
+                    obscureText: false,
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(left: distance_value),
+                    width: size.width * 0.3,
+                    child: TextForm(
+                      name: ac_text_name,
+                      helperText: ac_helper_name,
+                      maxLength: 10,
+                      valueDefault: null,
+                      obscureText: false,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Dropdown(
+              labelText: ac_text_gender,
+              items: list_gender,
+              // hintText: ac_text_gender,
+
             ),
             TextForm(
-              name: sc_login_text_form_password,
+              // controller: _emailController,
+              name: ac_text_email,
+              validate: Helper.validateEmail,
+              textInputType: TextInputType.emailAddress,
+              maxLength: 40,
+              // valueDefault: 'null',
+              prefixIcon: Icons.email,
+              suffixIcon: null,
+              suffixIconReplace: null,
+              obscureText: false,
+              showCounterText: false,
+              textInputAction: TextInputAction.next,
+              helperText: ac_helper_email,
+            ),
+            TextForm(
+              // controller: _passwordController,
+              name: ac_text_password,
+              validate: Helper.validatePassWord,
+              textInputType: TextInputType.visiblePassword,
               maxLength: 20,
-              valueDefault: null,
+              // valueDefault: null,
+              showCounterText: true,
+              suffixIcon: Icons.visibility,
+              suffixIconReplace: Icons.visibility_off,
               prefixIcon: Icons.security,
               obscureText: true,
             ),
+
             MaterialButton(
               minWidth: 250.0,
               height: 40.0,

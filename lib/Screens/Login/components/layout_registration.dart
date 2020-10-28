@@ -5,16 +5,17 @@ import 'package:lgbt_viet_nam/Widgets/Animations/SlideRightRoute.dart';
 
 import '../../../constants.dart';
 
+// ignore: must_be_immutable
 class LayoutRegistration extends StatelessWidget {
-  // ignore: must_be_immutable
   BuildContext _context;
 
   @override
   Widget build(BuildContext context) {
     this._context = context;
     return Container(
-      margin: EdgeInsets.only(top: 25.0),
-      alignment: Alignment(1, -1),
+      padding: EdgeInsets.only(top: 4.0),
+      width: double.infinity,
+      height: 60.0,
       child: Stack(
         children: [
           Positioned(
@@ -45,10 +46,14 @@ class LayoutRegistration extends StatelessWidget {
   void _registration() {
     try {
       print('doing click button registration');
+      FocusScope.of(_context).unfocus();
+      // Navigator.push(
+      //   _context,
+      //   SlideRightRoute(page: Registration()),
+      // );
+
       Navigator.push(
-        _context,
-        SlideRightRoute(page: Registration()),
-      );
+          _context, MaterialPageRoute(builder: (context) => Registration()));
     } catch (ex) {
       print('ex:' + ex);
     }

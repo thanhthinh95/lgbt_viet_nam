@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lgbt_viet_nam/Screens/CheckInternet/CheckInternet.dart';
 import 'package:lgbt_viet_nam/Widgets/background.dart';
 
-import 'components/contents.dart';
+import 'components/layout_contents.dart';
 
 class Registration extends StatelessWidget{
   @override

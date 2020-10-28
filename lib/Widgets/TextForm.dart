@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lgbt_viet_nam/constants.dart';
 
+// ignore: must_be_immutable
 class TextForm extends StatefulWidget {
   final TextEditingController controller;
   final String name; //Thư điện tử
@@ -69,14 +70,18 @@ class _TextFormState extends State<TextForm> {
             vertical: 15.0,
             horizontal: 10.0,
           ),
-          prefixIcon: Padding(
-            padding: const EdgeInsetsDirectional.only(start: 2.0, end: 2.0),
-            child: Icon(
-              textForm.prefixIcon,
-              color: icon_color,
-              size: 30.0,
-            ), // myIcon is a 48px-wide widget.
-          ),
+          prefixIcon: textForm.prefixIcon != null
+              ? (Padding(
+                  padding:
+                      const EdgeInsetsDirectional.only(start: 2.0, end: 2.0),
+                  child: Icon(
+                    textForm.prefixIcon,
+                    color: icon_color,
+                    size: 30.0,
+                  ), // myIcon is a 48px-wide widget.
+                ))
+              : null,
+
           // icon: Icon(
           //   Icons.favorite,
           //   color: icon_color,
@@ -107,9 +112,10 @@ class _TextFormState extends State<TextForm> {
             borderRadius: BorderRadius.circular(18.0),
           ),
           border: OutlineInputBorder(
-              borderSide: BorderSide(color: border_color),
-              borderRadius: BorderRadius.circular(18.0),
-              gapPadding: 8.0),
+            borderSide: BorderSide(color: border_color),
+            borderRadius: BorderRadius.circular(18.0),
+            gapPadding: 8.0,
+          ),
         ),
       ),
     );

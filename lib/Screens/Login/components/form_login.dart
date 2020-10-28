@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:lgbt_viet_nam/Widgets/TextFormField.dart';
+import 'package:lgbt_viet_nam/Widgets/TextForm.dart';
 import 'package:lgbt_viet_nam/constants.dart';
 import 'package:lgbt_viet_nam/helper.dart';
 
@@ -28,7 +28,7 @@ class _FormLoginState extends State<FormLogin> {
           children: [
             TextForm(
               controller: _emailController,
-              name: sc_login_text_form_username,
+              name: ac_text_email,
               validate: Helper.validateEmail,
               textInputType: TextInputType.emailAddress,
               maxLength: 40,
@@ -39,11 +39,11 @@ class _FormLoginState extends State<FormLogin> {
               obscureText: false,
               showCounterText: false,
               textInputAction: TextInputAction.next,
-              helperText: sc_login_helper_email,
+              helperText: ac_helper_email,
             ),
             TextForm(
               controller: _passwordController,
-              name: sc_login_text_form_password,
+              name: ac_text_password,
               validate: Helper.validatePassWord,
               textInputType: TextInputType.visiblePassword,
               maxLength: 20,

@@ -36,6 +36,7 @@ const app_name_font_size = 28.0;
 const detail_font_size = 18.0;
 const normal_font_size = 15.0;
 const small_font_size = 13.0;
+const distance_value = 5.0;
 
 //style
 const app_name_style = TextStyle(
@@ -82,16 +83,31 @@ const text_normal_style = TextStyle(
 const validate_warning_email = 'Thư điện thử không hợp lệ';
 const validate_warning_pass = 'Độ dài mật khẩu 6 - 20 ký tự';
 
+//gender
+const list_gender = <String>[
+  'Đồng tính nữ',
+  'Đồng tính nam',
+  'Lưỡng tính',
+  'Chuyển giới'
+];
+
+//Account
+const ac_text_email = 'Thư điện tử';
+const ac_helper_email = 'VD: dinhvana@gmail.com';
+const ac_text_password = 'Mật khẩu';
+const ac_text_first_name = 'Họ, tên đệm';
+const ac_helper_first_name = 'Nguyễn Văn';
+const ac_text_name = 'Tên';
+const ac_helper_name = 'Nam';
+const ac_text_gender = 'Giới tính';
+
 //Screen_Welcome
 //Screen_login
 const sc_login_name = 'Đăng Nhập';
 const sc_login_detail = 'Thỏa sức khám phá cộng đồng';
-const sc_login_text_form_username = 'Thư điện tử';
-const sc_login_text_form_password = 'Mật khẩu';
 const sc_login_text_forgot_password = 'Quên mật khẩu';
 const sc_login_button_login = 'Đăng Nhập';
 const sc_login_button_registration = 'Đăng Ký';
-const sc_login_helper_email = 'VD: dinhvana@gmail.com';
 
 //Screen_registration
 const sc_registration_name = 'Đăng Ký';
