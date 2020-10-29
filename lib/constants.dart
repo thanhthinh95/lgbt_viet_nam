@@ -82,6 +82,9 @@ const text_normal_style = TextStyle(
 //validate_warning
 const validate_warning_email = 'Thư điện thử không hợp lệ';
 const validate_warning_pass = 'Độ dài mật khẩu 6 - 20 ký tự';
+const validate_first_name = 'Độ dài từ 4 - 20 ký tự';
+const validate_name = 'Độ dài 2 - 10 ký tự';
+const validate_gender = 'Bạn chưa chọn giới tính';
 
 //gender
 const list_gender = <String>[
@@ -96,9 +99,9 @@ const ac_text_email = 'Thư điện tử';
 const ac_helper_email = 'VD: dinhvana@gmail.com';
 const ac_text_password = 'Mật khẩu';
 const ac_text_first_name = 'Họ, tên đệm';
-const ac_helper_first_name = 'Nguyễn Văn';
+const ac_helper_first_name = 'VD: Nguyễn Văn';
 const ac_text_name = 'Tên';
-const ac_helper_name = 'Nam';
+const ac_helper_name = 'VD: Nam';
 const ac_text_gender = 'Giới tính';
 
 //Screen_Welcome

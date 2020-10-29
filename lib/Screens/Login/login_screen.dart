@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lgbt_viet_nam/Screens/CheckInternet/CheckInternet.dart';
+import 'package:lgbt_viet_nam/Screens/CheckInternet/check_internet_screen.dart';
 import 'package:lgbt_viet_nam/Screens/Login/components/layout_contents.dart';
 import 'package:lgbt_viet_nam/Widgets/background.dart';
 

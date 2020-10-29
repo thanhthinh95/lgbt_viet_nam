@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lgbt_viet_nam/Screens/Login/components/layout_contents.dart';
-import 'package:lgbt_viet_nam/Widgets/Dropdown.dart';
-import 'package:lgbt_viet_nam/Widgets/TextForm.dart';
+import 'package:commons/commons.dart';
+import 'package:lgbt_viet_nam/Widgets/dropdown.dart';
+import 'package:lgbt_viet_nam/Widgets/text_form.dart';
 import 'package:lgbt_viet_nam/constants.dart';
 
 import '../../../helper.dart';
@@ -16,8 +16,11 @@ class FormRegistration extends StatefulWidget {
 class _FormRegistrationState extends State<FormRegistration> {
   BuildContext _context;
   final _formKey = GlobalKey<FormState>();
-  final _emailRegExp = RegExp(
-      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+  TextEditingController _firstNameController = new TextEditingController();
+  TextEditingController _nameController = new TextEditingController();
+  TextEditingController _emailController = new TextEditingController();
+  TextEditingController _passwordController = new TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +30,10 @@ class _FormRegistrationState extends State<FormRegistration> {
       key: _formKey,
       child: Container(
         margin: EdgeInsets.only(
-            top: distance_value * 10,
-            right: distance_value * 4,
-            left: distance_value),
+          top: size.height * 0.09,
+          left: distance_value * 3,
+          right: distance_value * 4,
+        ),
         child: Column(
           children: [
             Row(
@@ -37,8 +41,10 @@ class _FormRegistrationState extends State<FormRegistration> {
                 Container(
                   width: size.width * 0.53,
                   child: TextForm(
+                    controller: _firstNameController,
                     name: ac_text_first_name,
                     helperText: ac_helper_first_name,
+                    validate: Helper.validateFirstName,
                     maxLength: 20,
                     valueDefault: null,
                     prefixIcon: Icons.contact_page,
@@ -47,11 +53,13 @@ class _FormRegistrationState extends State<FormRegistration> {
                 ),
                 Expanded(
                   child: Container(
-                    margin: EdgeInsets.only(left: distance_value),
+                    margin: EdgeInsets.only(left: distance_value * 3),
                     width: size.width * 0.3,
                     child: TextForm(
+                      controller: _nameController,
                       name: ac_text_name,
                       helperText: ac_helper_name,
+                      validate: Helper.validateName,
                       maxLength: 10,
                       valueDefault: null,
                       obscureText: false,
@@ -63,11 +71,11 @@ class _FormRegistrationState extends State<FormRegistration> {
             Dropdown(
               labelText: ac_text_gender,
               items: list_gender,
+              validator: Helper.validateGender,
               // hintText: ac_text_gender,
-
             ),
             TextForm(
-              // controller: _emailController,
+              controller: _emailController,
               name: ac_text_email,
               validate: Helper.validateEmail,
               textInputType: TextInputType.emailAddress,
@@ -82,7 +90,7 @@ class _FormRegistrationState extends State<FormRegistration> {
               helperText: ac_helper_email,
             ),
             TextForm(
-              // controller: _passwordController,
+              controller: _passwordController,
               name: ac_text_password,
               validate: Helper.validatePassWord,
               textInputType: TextInputType.visiblePassword,
@@ -94,7 +102,6 @@ class _FormRegistrationState extends State<FormRegistration> {
               prefixIcon: Icons.security,
               obscureText: true,
             ),
-
             MaterialButton(
               minWidth: 250.0,
               height: 40.0,
@@ -112,24 +119,37 @@ class _FormRegistrationState extends State<FormRegistration> {
               },
             ),
             Container(
-                margin: EdgeInsets.only(top: 10.0),
-                child: GestureDetector(
-                  onTap: () {
-                    this._backToLogin();
-                  },
-                  child: Text(
-                    sc_registration_text_login,
-                    style: text_normal_style,
-                  ),
-                ))
+              margin: EdgeInsets.only(top: 10.0),
+              child: GestureDetector(
+                onTap: () {
+                  this._backToLogin();
+                },
+                child: Text(
+                  sc_registration_text_login,
+                  style: text_normal_style,
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
-  void _registration() {
-    print('begin login');
+  Future<void> _registration() async {
+    try {
+      print('begin registration');
+      if (_formKey.currentState.validate()) {
+        var response = await Helper.postData('/user/registration', {
+          'firstName': _firstNameController.text,
+          'name': _nameController.text,
+          'email': _emailController.text,
+          'password': _passwordController.text,
+        });
+      }
+    } catch (ex) {
+      print('ex:' + ex);
+    }
   }
 
   void _backToLogin() {

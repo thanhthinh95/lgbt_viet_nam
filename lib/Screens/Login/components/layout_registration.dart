@@ -52,8 +52,21 @@ class LayoutRegistration extends StatelessWidget {
       //   SlideRightRoute(page: Registration()),
       // );
 
+      // Navigator.push(
+      //     _context,
+      //     MaterialPageRoute(
+      //       builder: (context) => Registration(),
+      //     ),
+      // );
+
       Navigator.push(
-          _context, MaterialPageRoute(builder: (context) => Registration()));
+        _context,
+        PageRouteBuilder(
+          pageBuilder: (context, animation1, animation2) => Registration(),
+          transitionDuration: Duration(milliseconds: 300),
+          reverseTransitionDuration: Duration(milliseconds: 300),
+        ),
+      );
     } catch (ex) {
       print('ex:' + ex);
     }

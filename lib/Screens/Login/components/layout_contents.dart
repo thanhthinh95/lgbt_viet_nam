@@ -48,7 +48,7 @@ class Contents extends StatelessWidget {
                                 'assets/images/logo_lgbt_vietnam.png'),
                           ),
                         ),
-                        Text(app_name, style: app_name_style),
+                        Hero(tag: 'app_name_sc_login', child: Text(app_name, style: app_name_style)),
                         FormLogin(),
                       ],
                     ),

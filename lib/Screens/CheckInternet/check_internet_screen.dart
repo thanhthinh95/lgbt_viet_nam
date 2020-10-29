@@ -51,7 +51,7 @@ class _CheckInternetState extends State<CheckInternet> {
       _isVisible = _isVisible;
     });
 
-    print('_isVisible: ' + _isVisible.toString());
+    // print('_isVisible: ' + _isVisible.toString());
   }
 
   @override
@@ -66,12 +66,16 @@ class _CheckInternetState extends State<CheckInternet> {
       visible: _isVisible,
       child: Stack(children: [
         Container(
-          color: background_notify.withOpacity(0.3),
+          color: background_notify.withOpacity(0.45),
         ),
         Container(
           height: 40.0,
           width: MediaQuery.of(context).size.width,
-          margin: EdgeInsets.only(top: 35.0, left: 10.0, right: 10.0),
+          margin: EdgeInsets.only(
+            top: distance_value * 8,
+            left: distance_value * 4,
+            right: distance_value * 4,
+          ),
           padding: padding_value,
           decoration: BoxDecoration(
             color: background_notify,

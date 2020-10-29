@@ -36,6 +36,7 @@ dev_dependencies:
   flutter_launcher_icons: ^0.8.1
   http: ^0.12.2
   connectivity: ^2.0.0
+  commons: ^0.7.8+3
 
 flutter_icons:
   ios: true

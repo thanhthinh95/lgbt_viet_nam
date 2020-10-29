@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:lgbt_viet_nam/Widgets/TextForm.dart';
+import 'package:lgbt_viet_nam/Widgets/text_form.dart';
 import 'package:lgbt_viet_nam/constants.dart';
 import 'package:lgbt_viet_nam/helper.dart';
 
@@ -23,7 +23,11 @@ class _FormLoginState extends State<FormLogin> {
     return Form(
       key: _formKey,
       child: Container(
-        margin: EdgeInsets.only(top: size.height * 0.05, left: 15.0, right: 20.0),
+        margin: EdgeInsets.only(
+          top: size.height * 0.09,
+          left: distance_value * 3,
+          right: distance_value * 4,
+        ),
         child: Column(
           children: [
             TextForm(

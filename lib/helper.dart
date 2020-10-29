@@ -33,15 +33,55 @@ class Helper {
     }
   }
 
+  static String validateFirstName(value) {
+    try {
+      if (value.toString().length < 4 || value.toString().length > 20)
+        return validate_first_name;
+      else
+        return null;
+    } catch (ex) {
+      print('ex: ' + ex);
+      return null;
+    }
+  }
+
+  static String validateName(value) {
+    try {
+      if (value.toString().length < 2 || value.toString().length > 10)
+        return validate_name;
+      else
+        return null;
+    } catch (ex) {
+      print('ex: ' + ex);
+      return null;
+    }
+  }
+
+  static String validateGender(value) {
+    try {
+      if (value == null)
+        return validate_gender;
+      else
+        return null;
+    } catch (ex) {
+      print('ex: ' + ex);
+      return null;
+    }
+  }
+
   static Future<String> postData(endPoint, body) async {
     try {
+      print(endPoint + ' ' + body.toString());
       String url = 'http://' + host + ':' + port + endPoint;
-      var response = await http.post(url,
-          headers: {
-            'Content-Type': 'application/json',
-            'referer': 'dev',
-          },
-          body: json.encode(body));
+      var response = await http.post(
+        url,
+        headers: {
+          'Content-Type': 'application/json',
+          'referer': 'dev',
+        },
+        body: json.encode(body),
+      );
+      print('response: ' + response.body.toString());
       return response.body.toString();
     } catch (ex) {
       print('ex: ' + ex.toString());
