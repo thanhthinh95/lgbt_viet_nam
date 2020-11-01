@@ -1,9 +1,11 @@
 # APP LGBT Việt Nam
 
 ### Làm thế nào để chạy
+    - Điều chỉnh config_local.dark cho phù hợp với server.
     - Dùng AVD Manage để tạo máy ảo, hoặc dùng máy thật để run.
 
 ### Cấu trúc thư mục
+    - config: Chứa config của hệ thống
     - assets: Chứa tài nguyên dùng chung của hệ thống images, fonts...
     - pubspec.yaml: Chứa các package cần intall dark
     - lib/Screens: Chứa danh sách các màn hình
@@ -16,4 +18,4 @@
 
 
 created_at: 27/10/20 thinhdev
-update_at:
+update_at: 01/11/20 thinhdev

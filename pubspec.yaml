@@ -1,5 +1,5 @@
 name: lgbt_viet_nam
-description: A new Flutter application.
+description: This is app LGBT VietNam.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -33,6 +33,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_dotenv: ^2.1.0
   flutter_launcher_icons: ^0.8.1
   http: ^0.12.2
   connectivity: ^2.0.0
@@ -60,6 +61,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
 
   assets:
+    - .env
     - assets/images/
     - assets/icons/
 #    - assets/fonts/
