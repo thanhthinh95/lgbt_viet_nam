@@ -4,7 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:lgbt_viet_nam/Screens/Login/login_screen.dart';
 import 'package:lgbt_viet_nam/Screens/Welcome/welcome_screen.dart';
 import 'Screens/CheckInternet/check_internet_screen.dart';
-import 'constants.dart';
+import 'constants/constants.dart';
 
 Future main() async {
   await DotEnv().load('.env');

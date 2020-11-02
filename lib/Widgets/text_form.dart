@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lgbt_viet_nam/constants.dart';
+import 'file:///E:/Project/lgbt_viet_nam/lib/constants/constants.dart';
 
 // ignore: must_be_immutable
 class TextForm extends StatefulWidget {

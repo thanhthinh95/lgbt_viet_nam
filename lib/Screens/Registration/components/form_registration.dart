@@ -1,15 +1,39 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:commons/commons.dart';
 import 'package:lgbt_viet_nam/Widgets/dropdown.dart';
 import 'package:lgbt_viet_nam/Widgets/text_form.dart';
-import 'package:lgbt_viet_nam/constants.dart';
+import 'package:lgbt_viet_nam/constants/constants.dart';
+import 'package:lgbt_viet_nam/constants/models.dart';
+import 'package:lgbt_viet_nam/constants/models.dart';
+import 'package:lgbt_viet_nam/models/gender.dart';
+
 
 import '../../../helper.dart';
 
 class FormRegistration extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
+    this._get_all_genders();
     return _FormRegistrationState();
+  }
+
+  // ignore: non_constant_identifier_names
+  Future<void> _get_all_genders() async {
+    try {
+      var response = await Helper.postData('/gender/get_all', {
+        'status': gender_constant['STATUS']['ACTIVE'].toString(),
+      });
+
+      var arrayJson = jsonDecode(response)['data'] as List;
+      List<Gender> genders = arrayJson.map((item) => Gender.fromJson(item)).toList();
+      print('genders: ' + genders.toString());
+
+
+    } catch (ex) {
+      print('ex' + ex);
+    }
   }
 }
 
@@ -21,11 +45,12 @@ class _FormRegistrationState extends State<FormRegistration> {
   TextEditingController _emailController = new TextEditingController();
   TextEditingController _passwordController = new TextEditingController();
 
-
   @override
   Widget build(BuildContext context) {
     this._context = context;
-    final Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery
+        .of(context)
+        .size;
     return Form(
       key: _formKey,
       child: Container(

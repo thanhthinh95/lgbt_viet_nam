@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lgbt_viet_nam/Screens/Registration/registration_screen.dart';
 import 'package:lgbt_viet_nam/Widgets/Animations/SlideRightRoute.dart';
 
-import '../../../constants.dart';
+import '../../../constants/constants.dart';
 
 // ignore: must_be_immutable
 class LayoutRegistration extends StatelessWidget {
