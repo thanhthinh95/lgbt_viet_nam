@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lgbt_viet_nam/models/dropdown_data.dart';
 
 import '../constants/constants.dart';
 
 class Dropdown extends StatefulWidget {
-  final List<String> items;
+  final List<DropdownData> items;
   final String labelText;
   final Icon prefixIcon;
   final Icon suffixIcon;
@@ -36,20 +37,20 @@ class _Dropdown extends State<Dropdown> {
         icon: Icon(Icons.keyboard_arrow_down),
         // elevation: 164,
         style: TextStyle(color: text_color),
-        onChanged: (String newValue) {
+        onChanged: (DropdownData data) {
           setState(() {
             // dropdownValue = newValue;
           });
         },
-        items: dropdown.items.map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
+        items: dropdown.items.map<DropdownMenuItem<DropdownData>>((DropdownData data) {
+          return DropdownMenuItem<DropdownData>(
+            value: data,
             child: Row(children: [
-              Text(value),
+              Text(data.name),
             ]),
           );
         }).toList(),
-        validator: dropdown.validator,
+        // validator: dropdown.validator,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(
             vertical: 13.5,

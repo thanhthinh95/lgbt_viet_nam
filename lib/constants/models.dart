@@ -1,4 +1,4 @@
-const user_constant = {
+const user_const= {
   "TYPE": {
     "UNKNOWN": 0, //Chưa xác định
     "WIFE": 1, //Người vợ (Công)
@@ -11,7 +11,7 @@ const user_constant = {
   },
 };
 
-const gender_constant = {
+const gender_const = {
   "STATUS": {
     "ACTIVE": 1,
     "DEACTIVATE": 0,
