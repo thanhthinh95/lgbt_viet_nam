@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
-import 'file:///E:/Project/lgbt_viet_nam/lib/constants/constants.dart';
+import 'package:lgbt_viet_nam/constants/constants.dart';
 
 class CheckInternet extends StatefulWidget {
   @override

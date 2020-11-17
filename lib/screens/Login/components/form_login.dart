@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:lgbt_viet_nam/Widgets/text_form.dart';
-import 'file:///E:/Project/lgbt_viet_nam/lib/constants/constants.dart';
+import 'package:lgbt_viet_nam/constants/constants.dart';
 import 'package:lgbt_viet_nam/helper.dart';
 
 class FormLogin extends StatefulWidget {

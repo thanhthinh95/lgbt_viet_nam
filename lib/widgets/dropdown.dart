@@ -4,7 +4,7 @@ import 'package:lgbt_viet_nam/models/dropdown_data.dart';
 import '../constants/constants.dart';
 
 class Dropdown extends StatefulWidget {
-  final List<DropdownData> items;
+  List<DropdownData> items;
   final String labelText;
   final Icon prefixIcon;
   final Icon suffixIcon;
@@ -20,6 +20,7 @@ class Dropdown extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
+    print('this.items: ' + this.items.toString());
     return _Dropdown(this);
   }
 }
@@ -38,11 +39,12 @@ class _Dropdown extends State<Dropdown> {
         // elevation: 164,
         style: TextStyle(color: text_color),
         onChanged: (DropdownData data) {
-          setState(() {
-            // dropdownValue = newValue;
-          });
+          // setState(() {
+          //   dropdownValue = data;
+          // });
         },
-        items: dropdown.items.map<DropdownMenuItem<DropdownData>>((DropdownData data) {
+        items: dropdown.items
+            .map<DropdownMenuItem<DropdownData>>((DropdownData data) {
           return DropdownMenuItem<DropdownData>(
             value: data,
             child: Row(children: [

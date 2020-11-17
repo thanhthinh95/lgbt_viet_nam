@@ -17,12 +17,9 @@ class RegistrationBloc {
       dropDownData.add(new DropdownData(element.id, element.name));
     });
 
+    print('den day roi' + dropDownData.toString());
     _registrationController.sink.add(dropDownData);
   }
-
-
-
-
 
   void dispose(){
     _registrationController.close();

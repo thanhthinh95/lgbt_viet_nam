@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lgbt_viet_nam/Screens/Login/components/form_login.dart';
 import 'package:lgbt_viet_nam/Screens/Welcome/welcome_screen.dart';
-import 'file:///E:/Project/lgbt_viet_nam/lib/constants/constants.dart';
+import 'package:lgbt_viet_nam/constants/constants.dart';
 
 import 'layout_registration.dart';
 

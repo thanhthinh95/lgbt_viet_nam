@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'file:///E:/Project/lgbt_viet_nam/lib/constants/constants.dart';
+import 'package:lgbt_viet_nam/constants/constants.dart';
 
 import 'form_registration.dart';
 
