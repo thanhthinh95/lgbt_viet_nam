@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:lgbt_viet_nam/Widgets/dropdown.dart';
 import 'package:lgbt_viet_nam/Widgets/text_form.dart';
 import 'package:lgbt_viet_nam/constants/constants.dart';
+import 'package:lgbt_viet_nam/models/dropdown_data.dart';
 import 'package:lgbt_viet_nam/screens/Registration/registration_bloc.dart';
 
 import '../../../helper.dart';
@@ -22,6 +23,7 @@ class _FormRegistrationState extends State<FormRegistration> {
   TextEditingController _nameController = new TextEditingController();
   TextEditingController _emailController = new TextEditingController();
   TextEditingController _passwordController = new TextEditingController();
+  DropdownData _dropdownSelected;
 
   RegistrationBloc _registrationBloc = new RegistrationBloc();
 
@@ -32,13 +34,13 @@ class _FormRegistrationState extends State<FormRegistration> {
 
   Future<void> _registration() async {
     try {
-      print('begin registration');
+      print('begin registration' + _dropdownSelected.toString());
       if (_formKey.currentState.validate()) {
         var response = await Helper.postData('/user/registration', {
           'firstName': _firstNameController.text,
           'name': _nameController.text,
           'email': _emailController.text,
-          // 'genderId': _
+          // 'genderId': _dropdownSelected.id.toString(),
           'password': _passwordController.text,
         });
       }
@@ -99,7 +101,7 @@ class _FormRegistrationState extends State<FormRegistration> {
                             name: ac_text_name,
                             helperText: ac_helper_name,
                             validate: Helper.validateName,
-                            maxLength: 10,
+                            maxLength: 8,
                             valueDefault: null,
                             obscureText: false,
                           ),
@@ -108,11 +110,11 @@ class _FormRegistrationState extends State<FormRegistration> {
                     ],
                   ),
                   Dropdown(
+                    dropdownSelected: _dropdownSelected,
                     labelText: ac_text_gender,
                     items: snapshot.data,
                     validator: Helper.validateGender,
 
-                    // hintText: ac_text_gender,
                   ),
                   TextForm(
                     controller: _emailController,
@@ -134,7 +136,7 @@ class _FormRegistrationState extends State<FormRegistration> {
                     name: ac_text_password,
                     validate: Helper.validatePassWord,
                     textInputType: TextInputType.visiblePassword,
-                    maxLength: 20,
+                    maxLength: 12,
                     // valueDefault: null,
                     showCounterText: true,
                     suffixIcon: Icons.visibility,

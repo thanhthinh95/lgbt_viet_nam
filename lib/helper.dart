@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'constants/constants.dart';
+import 'config/config.dart';
 
 class Helper {
   // static Helper _instance;
@@ -72,6 +73,10 @@ class Helper {
   static Future<String> postData(endPoint, body) async {
     try {
       print(endPoint + ' ' + body.toString());
+
+      var host = configApp()['SERVER_HOST'];
+      var port = configApp()['SERVER_PORT'];
+
       String url = 'http://' + host + ':' + port + endPoint;
       var response = await http.post(
         url,

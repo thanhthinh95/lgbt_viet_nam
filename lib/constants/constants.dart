@@ -4,10 +4,6 @@ import 'package:flutter/material.dart';
 const app_name = 'LGBT Việt Nam';
 const slogan = 'Hãy là chính bản thân mình';
 
-//server
-const host = '192.168.10.208';
-const port = '6630';
-
 //notify
 const no_internet = 'Hãy kiểm tra lại kết nối mạng!';
 
