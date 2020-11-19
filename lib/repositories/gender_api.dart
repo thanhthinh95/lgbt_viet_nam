@@ -11,8 +11,8 @@ class GenderAPI {
         'status': gender_const['STATUS']['ACTIVE'].toInt(),
       });
 
-      var arrayJson = jsonDecode(response)['data'] as List;
-      genders = arrayJson.map((item) => Gender.fromJson(item)).toList();
+      var arrayJsonData = response['data'] as List;
+      genders = arrayJsonData.map((item) => Gender.fromJson(item)).toList();
       return genders;
     } catch (ex) {
       print('ex' + ex);

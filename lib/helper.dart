@@ -70,10 +70,9 @@ class Helper {
     }
   }
 
-  static Future<String> postData(endPoint, body) async {
+  static Future<Map> postData(endPoint, body) async {
     try {
       print(endPoint + ' ' + body.toString());
-
       var host = configApp()['SERVER_HOST'];
       var port = configApp()['SERVER_PORT'];
 
@@ -87,7 +86,7 @@ class Helper {
         body: json.encode(body),
       );
       print('response: ' + response.body.toString());
-      return response.body.toString();
+      return jsonDecode(response.body);
     } catch (ex) {
       print('ex: ' + ex.toString());
       return null;

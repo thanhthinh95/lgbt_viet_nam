@@ -3,18 +3,22 @@ import 'package:lgbt_viet_nam/models/dropdown_data.dart';
 
 import '../constants/constants.dart';
 
+typedef void IntCallback(DropdownData data);
+
 // ignore: must_be_immutable
 class Dropdown extends StatefulWidget {
+  final IntCallback onDropDownChanged;
+
   List<DropdownData> items;
-  DropdownData dropdownSelected;
+  // Function updateDropdownSelected;
   final String labelText;
   final Icon prefixIcon;
   final Icon suffixIcon;
   final FormFieldValidator<String> validator;
 
   Dropdown({
+    this.onDropDownChanged,
     this.items,
-    this.dropdownSelected,
     this.labelText,
     this.prefixIcon,
     this.suffixIcon,
@@ -30,25 +34,19 @@ class Dropdown extends StatefulWidget {
 
 class _Dropdown extends State<Dropdown> {
   Dropdown dropdown;
-
   _Dropdown(this.dropdown);
+
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 78.0,
       child: DropdownButtonFormField(
-
         icon: Icon(Icons.keyboard_arrow_down),
         // elevation: 164,
         style: TextStyle(color: text_color),
         onChanged: (DropdownData data) {
-
-          setState(() {
-            print('gender ' + data.id);
-            dropdown.dropdownSelected = data;
-            print('hihi ' + dropdown.dropdownSelected.id);
-          });
+          dropdown.onDropDownChanged(data);
         },
         items: dropdown.items
             .map<DropdownMenuItem<DropdownData>>((DropdownData data) {

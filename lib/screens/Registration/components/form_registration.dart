@@ -6,6 +6,8 @@ import 'package:lgbt_viet_nam/Widgets/text_form.dart';
 import 'package:lgbt_viet_nam/constants/constants.dart';
 import 'package:lgbt_viet_nam/models/dropdown_data.dart';
 import 'package:lgbt_viet_nam/screens/Registration/registration_bloc.dart';
+import 'package:lgbt_viet_nam/constants/response.dart';
+import 'package:commons/commons.dart';
 
 import '../../../helper.dart';
 
@@ -34,15 +36,40 @@ class _FormRegistrationState extends State<FormRegistration> {
 
   Future<void> _registration() async {
     try {
-      print('begin registration' + _dropdownSelected.toString());
+      print("begin  registration");
+
       if (_formKey.currentState.validate()) {
         var response = await Helper.postData('/user/registration', {
           'firstName': _firstNameController.text,
           'name': _nameController.text,
           'email': _emailController.text,
-          // 'genderId': _dropdownSelected.id.toString(),
+          'genderId': _dropdownSelected.id.toString(),
           'password': _passwordController.text,
         });
+
+        if (response['status'] == const_response['STATUS']['SUCCESS']) {
+          print('ok nhe');
+          successDialog(
+            _context,
+            "Thành công",
+          );
+        } else if (response['status'] == const_response['STATUS']['ERROR']) {
+          String message = "Đã có lỗi xảy ra!";
+          dynamic constUser = const_response['ERROR_CODE']['USER'];
+
+          if (response['error_code'] == constUser['VERIFY_CODE_INVALID']) {
+            message = "Mã code không hợp lệ";
+          } else if (response['error_code'] == constUser['ACCOUNT_INVALID']) {
+            message = "Tài khoản không hợp lệ";
+          } else if (response['error_code'] == constUser['EMAIL_EXISTED']) {
+            message = "Email đã tồn tại";
+          }
+
+          errorDialog(
+            _context,
+            message,
+          );
+        }
       }
     } catch (ex) {
       print('ex:' + ex);
@@ -110,11 +137,14 @@ class _FormRegistrationState extends State<FormRegistration> {
                     ],
                   ),
                   Dropdown(
-                    dropdownSelected: _dropdownSelected,
+                    onDropDownChanged: (DropdownData data) {
+                      setState(() {
+                        _dropdownSelected = data;
+                      });
+                    },
                     labelText: ac_text_gender,
                     items: snapshot.data,
                     validator: Helper.validateGender,
-
                   ),
                   TextForm(
                     controller: _emailController,
